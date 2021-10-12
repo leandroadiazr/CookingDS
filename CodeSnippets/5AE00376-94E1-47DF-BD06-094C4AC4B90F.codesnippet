@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//Directory Access
+   static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let archiveURL = documentsDirectory.appendingPathComponent("Emoji_test").appendingPathExtension("plist")
+    
+    //Save to Disk Method
+    static func saveToFile(emojis: [Emoji]){
+        
+        let propertyListEncoder = PropertyListEncoder()
+        if let savedEmojis = try? propertyListEncoder.encode(emojis) {
+            print("Emojis Saved \(savedEmojis)")
+            try? savedEmojis.write(to: archiveURL, options: .noFileProtection)
+        }
+    }
+    
+    //Load from Disk Method
+    static func loadFromFile() -&gt; [Emoji]?{
+        
+        guard let retreiveEmojis = try? Data(contentsOf: archiveURL) else {return nil}
+        let decoder = PropertyListDecoder()
+        return try? decoder.decode(Array&lt;Emoji&gt;.self, from: retreiveEmojis)
+    }
+    
+    //Sample data to load if no file on disk
+    static func loadSampleEmojis() -&gt; [Emoji] {
+        return [Emoji(symbol: "😀", name: "Grinning Face", description: "A typical smiley face.", usage: "happiness")]
+                
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>5AE00376-94E1-47DF-BD06-094C4AC4B90F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Save&amp;Load&amp;Sample</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//MARK:- CUSTOM STORYBOARD ANIMATED TRANSITION
+extension LoginViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -&gt; UIViewControllerAnimatedTransitioning? {
+        let customTransition = CustomTransition()
+        customTransition.isPresenting = true
+        return customTransition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -&gt; UIViewControllerAnimatedTransitioning? {
+        let customTransition = CustomTransition()
+        customTransition.isPresenting = false
+        return customTransition
+    }
+    @IBAction func unwindToExit(_ unwindSegue: UIStoryboardSegue) {}
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>9A3088C5-7E2B-4D6A-BF3A-7DE0BDD44B44</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>EXTENSION CUSTOM STORYBOARD ANIMATED TRANSITION</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

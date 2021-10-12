@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>func reloadData() {
+        var snapshot = NSDiffableDataSourceSnapshot&lt;Section, App&gt;()
+        snapshot.appendSections(sections)
+
+        for section in sections {
+            snapshot.appendItems(section.items, toSection: section)
+        }
+
+        dataSource?.apply(snapshot)
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C0DCFD4D-2B4A-4DF0-8633-08D7363551F7</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>snapshotReloadData</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

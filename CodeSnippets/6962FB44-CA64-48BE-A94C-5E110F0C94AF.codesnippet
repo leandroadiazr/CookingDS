@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>import UIKit
+//Cached Image Global Var
+let imageCached = ImageCached()
+
+//Cached Images
+class ImageCached: NSCache&lt;AnyObject, AnyObject&gt; {
+   
+    
+    func add(_ image: UIImage, forKey key: String){
+        setObject(image, forKey: key as AnyObject)
+    }
+    
+    func image(forKey key: String) -&gt; UIImage? {
+        guard let image = object(forKey: key as AnyObject) as? UIImage else { return nil}
+        return image
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>6962FB44-CA64-48BE-A94C-5E110F0C94AF</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>ImageCached</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

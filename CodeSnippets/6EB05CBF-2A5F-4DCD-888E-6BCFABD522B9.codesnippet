@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>customNetCall</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    func netCall(for string: String, page: Int, completed: @escaping (Result&lt;MovieResults, CustomError&gt;) -&gt; Void) {
+        let endPoint = urlString + "api_key=\(apiKey)&amp;query=\(string)&amp;page=\(page)"
+        
+        guard let url = URL(string: endPoint) else {
+            completed(.failure(.invalidRequest))
+            return
+        }
+       
+        let config  = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let dataTask = session.dataTask(with: url) { data, response, error in
+            if error != nil {
+                completed(.failure(.invalidRequest))
+                return
+            }
+            
+            guard let result = response as? HTTPURLResponse, result.statusCode == 200 else {
+                completed(.failure(.invalidRequest))
+                return
+            }
+            
+            guard let data = data else {
+                completed(.failure(.invalidRequest))
+                return
+            }
+            print(data)
+            
+            do {
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let receivedData = try decoder.decode(MovieResults.self, from: data)
+                print(receivedData)
+                completed(.success(receivedData))
+            } catch {
+                print(error.localizedDescription)
+                completed(.failure(.invalidRequest))
+            }
+            
+        }
+        dataTask.resume()
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>6EB05CBF-2A5F-4DCD-888E-6BCFABD522B9</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>customNetCall</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

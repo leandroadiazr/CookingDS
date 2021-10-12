@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>CustomBarButtons</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> private func configureNavigationBar() {
+        let titleImageView = UIImageView(image: Images.like)
+        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        titleImageView.contentMode = .scaleAspectFit
+        titleImageView.tintColor = .blue
+        navigationItem.titleView = titleImageView
+        
+        let leftBtn = UIButton(type: .system)
+        leftBtn.setImage(Images.like, for: .normal)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
+        
+        let searchBtn = UIButton(type: .system)
+        searchBtn.setImage(Images.search, for: .normal)
+        
+        let newTweet = UIButton(type: .system)
+        newTweet.setImage(Images.newTweet, for: .normal)
+        
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: newTweet), UIBarButtonItem(customView: searchBtn)]
+        
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3DB5C452-07F5-4EEE-8280-290ACF2E3F6D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>CustomBarButtons</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

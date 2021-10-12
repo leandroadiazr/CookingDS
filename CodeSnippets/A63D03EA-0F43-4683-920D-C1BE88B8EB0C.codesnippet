@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>let storyboard = UIStoryboard(name: "main", bundle: nil)
+let vc = storyboard.instantiateViewController(withIdentifier: "")
+//add view in full screen
+vc.modalPresentationStyle = .fullScreen
+//animation set to false so user never sees the app until signed in
+self.present(vc, animated: false, completion: nil)</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>A63D03EA-0F43-4683-920D-C1BE88B8EB0C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Present Controller Modally</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

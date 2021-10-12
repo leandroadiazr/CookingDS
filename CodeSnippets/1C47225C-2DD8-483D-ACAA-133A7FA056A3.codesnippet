@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>
+    @objc func handleTouch(gesture: UIPanGestureRecognizer){
+        let location = gesture.location(in: view)
+        let width = view.frame.width / CGFloat(numViewPerRow)
+        let currentXLocation = Int(location.x / width)
+        let currentYLocation = Int(location.y / width)
+        
+        let key = "\(currentXLocation)|\(currentYLocation)"
+        guard let cellView = cells[key] else { return }
+
+        if selectedCell != cellView {
+           UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.selectedCell?.layer.transform = CATransform3DIdentity
+                    }, completion: nil)
+        }
+        selectedCell = cellView
+        view.bringSubviewToFront(cellView)
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+            cellView.layer.transform = CATransform3DMakeScale(2, 2, 2)
+
+        }, completion: nil)
+        
+        if gesture.state == .ended {
+            UIView.animate(withDuration: 0.5, delay: 0.25, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                cellView.layer.transform = CATransform3DIdentity
+            }, completion: { (_) in
+                
+            })
+        }
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>1C47225C-2DD8-483D-ACAA-133A7FA056A3</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>CellsAnimation</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

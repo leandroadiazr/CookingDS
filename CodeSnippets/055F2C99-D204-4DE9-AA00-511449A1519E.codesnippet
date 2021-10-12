@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>  let center = UNUserNotificationCenter.current()
+             center.delegate = self
+             
+             center.requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
+                 if let _ = error {
+                    print("error occurred with the notification")
+                 }
+                 DispatchQueue.main.async {
+                     application.registerForRemoteNotifications()
+                 }
+             }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>055F2C99-D204-4DE9-AA00-511449A1519E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>DidFinishLaunching with Options</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>AppDelegate Implement Notifications</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

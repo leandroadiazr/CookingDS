@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>CustomTabBarController</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    fileprivate func createTabBar() {
+        UITabBar.appearance().tintColor = .systemTeal
+        UITabBar.setTransparency()
+        
+        self.viewControllers = [createHomeViewController(), createLatestViewController(), createFavoritesController()]
+    }
+    
+    func createHomeViewController() -&gt; UINavigationController{
+        let homeNavCon        = HomeViewController()
+        homeNavCon.title      = "Home"
+        homeNavCon.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        tabBarItem.tag = 0
+        
+        return UINavigationController(rootViewController: homeNavCon)
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>65F56906-22EC-4BB3-8E62-AA5841A21D76</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>CustomTabBarController</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

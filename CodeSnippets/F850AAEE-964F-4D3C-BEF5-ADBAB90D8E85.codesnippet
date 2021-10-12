@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>quicktableview</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>var tableView: UITableView?
+    var generics = [String]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        configureTableView()
+    }
+    
+    private func configureTableView() {
+        tableView = UITableView(frame: .zero, style: .plain)
+        tableView?.frame = view.bounds
+        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView?.delegate = self
+        tableView?.dataSource = self
+        tableView?.backgroundColor = .systemBlue
+        
+        guard let tableView = tableView else { return}
+        view.addSubview(tableView)
+    }
+
+ 
+
+}
+
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
+        return generics.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let item = generics[indexPath.row]
+        
+        cell.textLabel?.text = item
+        return cell
+    }
+    
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>F850AAEE-964F-4D3C-BEF5-ADBAB90D8E85</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Quick Table View</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

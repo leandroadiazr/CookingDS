@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>GlobalExtensions</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//MARK:- GLOBAL VIEW CONTROLLER EXTENSIONS
+//MARK:- GLOBAL VIEW CONTROLLER EXTENSIONS
+//MARK:- GLOBAL VIEW CONTROLLER EXTENSIONS
+import UIKit
+import SafariServices
+fileprivate var containerView: UIView!
+
+extension UIViewController {
+    
+    //TitleAttributes
+    func preferedTitleAppearance() {
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 26)]
+    }
+    
+    //Present Alert View Controller
+    func showAlert(title: String, message: String, buttonTitle: String){
+        DispatchQueue.main.async {
+            let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertVC.modalPresentationStyle   = .overFullScreen
+            alertVC.modalTransitionStyle     = .crossDissolve
+            self.present(alertVC, animated: true)
+        }
+    }
+    
+    //Present Success View Controller
+    func showSuccess(title: String, message: String, buttonTitle: String){
+        DispatchQueue.main.async {
+            let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertVC.modalPresentationStyle   = .overFullScreen
+            alertVC.modalTransitionStyle     = .crossDissolve
+            self.present(alertVC, animated: true)
+        }
+    }
+
+    //present safari inside windows
+    func presentSafariVC(with url: URL){
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .systemTeal
+        present(safariVC, animated: true, completion: nil)
+    }
+    
+    //Loading View for screens
+    func showLoadingView(){
+        containerView = UIView(frame: view.bounds)
+        view.addSubview(containerView)
+        
+        containerView.backgroundColor   = .systemBackground
+        containerView.alpha             = 0
+        
+        UIView.animate(withDuration: 0.25) {
+            containerView.alpha = 0.8
+        }
+        
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        containerView.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        activityIndicator.startAnimating()
+    }
+    
+    //dismissLoading View
+    func dismissLoadingView() {
+        DispatchQueue.main.async{
+            containerView.removeFromSuperview()
+        }
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>CA42BC93-2E4B-4DAF-8F57-80BD6F03A414</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Reusable VC Extensions</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>GLOBAL VIEW CONTROLLER EXTENSIONS</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

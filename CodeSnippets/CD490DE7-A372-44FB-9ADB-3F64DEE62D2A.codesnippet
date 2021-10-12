@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>struct CustomVStackBarView: View {
+    var textOne: String = "extra 10% off"
+    var textOneFontSize = Font.system(.title2)
+    var textTwo: String = "code: MADEWITHSWIFTUI"
+    var textTwoFontSize = Font.system(.subheadline)
+    var width: CGFloat = Constants.screenSize.width - 10
+    var height: CGFloat = 40
+    var backgroundColor = Color.init(.darkGray)
+    var foregroundColor = Color.white
+    
+    
+    var body: some View {
+        VStack {
+            Text(textOne)
+                .bold()
+                .font(textOneFontSize)
+            Text(textTwo)
+                .font(textTwoFontSize)
+        }
+        .frame(width: width, height: height, alignment: .center)
+        .background(backgroundColor)
+        .foregroundColor(foregroundColor)
+        .padding(.bottom, 1)
+    }
+}
+
+struct CustomVStackBarView_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomHStackBarView()
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>CD490DE7-A372-44FB-9ADB-3F64DEE62D2A</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>My Code Snippet</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

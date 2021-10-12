@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>SwiftUICustomSearchBar</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> @Binding  var text: String
+    @State  var isEditing = true
+    @Binding  var isLoading: Bool
+    
+    var body: some View {
+        ZStack(alignment: .leading) {
+            Color.gray
+                .frame(width: Constants.screenSize.width , height: 37)
+                .cornerRadius(8)
+            HStack {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.white)
+                    .padding(.leading, 10)
+                TextField("Search...", text: $text)
+                    .padding(7)
+                    .background(Color.gray)
+                    .cornerRadius(8)
+                    .foregroundColor(.white)
+                    .onTapGesture(perform: {
+                        isEditing = true
+                    })
+                    .animation(.default)
+                if !text.isEmpty {
+                    if isLoading {
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                            .scaleEffect(1)
+                    } else {
+                        CustomButton(imageName: "xmark.circle", foregroundColor: .white, fontSize: .system(size: 14)) {
+                            text = ""
+                            isLoading = false
+                        }
+                        .animation(.default)
+                    }
+                }
+                if isEditing {
+                    Button(action: {
+                        isEditing = false
+                        isLoading = false
+                        hideKeyboard()
+                    }, label: {
+                        Text("Cancel")
+                    })
+                    .transition(.move(edge: .trailing))
+                    .animation(.default)
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 6)
+                }
+            }
+        }
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>20F7674A-CB84-45A3-B398-982C6C99A4BF</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>SwiftUICustomSearchBar</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

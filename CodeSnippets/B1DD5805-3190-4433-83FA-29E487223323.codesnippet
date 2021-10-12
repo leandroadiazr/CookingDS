@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>  @IBAction func unwindToToDoList(_ unwindSegue: UIStoryboardSegue) {
+        //check that the model with the data stored exist in the source VC
+        guard unwindSegue.identifier == "saveUnwind" else { return }
+        
+        //             Use data from the view controller which initiated the unwind segue
+        let sourceViewController = unwindSegue.source as! NewTodoViewController
+        
+        //check that the object has data stored and add new row with that info
+        if let todo = sourceViewController.todo {
+            let newIndexPath = IndexPath(row: todos.count, section: 0)
+            todos.append(todo)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B1DD5805-3190-4433-83FA-29E487223323</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>unWindTo....Segue</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>import UIKit
+
+extension UIView {
+    
+    func setConstraints(to view: UIView){
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+                  
+                  topAnchor.constraint(equalTo: view.topAnchor),
+                  leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                  trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                  bottomAnchor.constraint(equalTo: view.bottomAnchor)
+              
+              ])
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>5EE03DC4-428F-4ABE-9D8D-2FDEC3E32312</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Generic Constraints Extension</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

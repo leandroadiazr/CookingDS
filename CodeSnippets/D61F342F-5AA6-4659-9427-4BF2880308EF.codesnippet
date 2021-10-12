@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> //Prepare for Unwind Method
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        guard let source = segue.source as? BookFormVC,
+            let book = source.book else {return}
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            books.remove(at: indexPath.row)
+            books.insert(book, at: indexPath.row)
+            tableView.deselectRow(at: indexPath, animated: true)
+        } else {
+            books.append(book)
+        }
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>D61F342F-5AA6-4659-9427-4BF2880308EF</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>prepareForUnwind Method</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

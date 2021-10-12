@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>SwiftUICustomButton</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>struct CustomButton: View {
+    var imageName: String
+    var title: String = ""
+    var backgroundColor = Color.white
+    var foregroundColor = Color.blue
+    var fontSize: Font = Font.system(size: 44)
+    
+    var action: () -&gt; Void
+    
+    var body: some View {
+        Button(action: {
+            action()
+        }, label: {
+            Image(systemName: imageName)
+            Text(title)
+        })
+        .font(fontSize)
+        .foregroundColor(foregroundColor)
+        .background(backgroundColor)
+    }
+}
+
+struct CustomButton_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomButton(imageName: "bell") {
+            print("tapped")
+        }
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>833E1D83-7370-40A2-A49C-4D61D3CDDF03</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>SwiftUICustomButton</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>updateSearchResults</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>   func updateSearchResults(for searchController: UISearchController) {
+        if let text = searchController.searchBar.text, text.count &gt; 0 {
+            filteredFriends = friends.filter {
+                $0.name.contains(text)
+            }
+        } else {
+            filteredFriends = friends
+        }
+        tableView?.reloadData()
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>D2ED659C-78A0-430F-90B5-1AA631F0F10C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>updateSearchResults</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

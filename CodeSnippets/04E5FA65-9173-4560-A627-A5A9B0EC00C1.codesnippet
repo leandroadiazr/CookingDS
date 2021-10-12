@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>customAlert</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>let alertVC = UIAlertController(title: "Choose an Option", message: "You wish to take a new picture or upload from Photos", preferredStyle: .actionSheet)
+
+alertVC.view.layer.borderWidth = 1
+alertVC.view.layer.cornerRadius = 10
+alertVC.view.layer.borderColor = UIColor.white.cgColor
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { action in
+            imagePicker.sourceType = .camera
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        
+        let photoLibrary = UIAlertAction(title: "iPhotos", style: .default) { action in
+            imagePicker.sourceType = .photoLibrary
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertVC.addAction(cameraAction)
+        alertVC.addAction(photoLibrary)
+        alertVC.addAction(cancelAction)
+        
+        alertVC.popoverPresentationController?.sourceView = sender
+        present(alertVC, animated: true, completion: nil)</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>04E5FA65-9173-4560-A627-A5A9B0EC00C1</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>AlertVC</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

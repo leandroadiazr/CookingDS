@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string></string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>   func createDataSource() {
+        dataSource = UICollectionViewDiffableDataSource&lt;Section, App&gt;(collectionView: collectionView) { collectionView, indexPath, app in
+            switch self.sections[indexPath.section].type {
+            case "mediumTable":
+                return self.configure(MediumTableCell.self, with: app, for: indexPath)
+            case "smallTable":
+                return self.configure(SmallTableCell.self, with: app, for: indexPath)
+            default:
+                return self.configure(FeaturedCell.self, with: app, for: indexPath)
+            }
+        }
+
+        dataSource?.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
+            guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseIdentifier, for: indexPath) as? SectionHeader else {
+                return nil
+            }
+
+            guard let firstApp = self?.dataSource?.itemIdentifier(for: indexPath) else { return nil }
+            guard let section = self?.dataSource?.snapshot().sectionIdentifier(containingItem: firstApp) else { return nil }
+            if section.title.isEmpty { return nil }
+
+            sectionHeader.title.text = section.title
+            sectionHeader.subtitle.text = section.subtitle
+            return sectionHeader
+        }
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>2FF26161-5D1A-4BB4-AED6-C98861AA5FD5</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>createDiffableDataSource</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

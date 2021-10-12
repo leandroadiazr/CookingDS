@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>AuthProtocol</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//MARK:- AUTHORIZATION PROTOCOL PROVIDER
+extension ViewController: ASAuthorizationControllerPresentationContextProviding  {
+    func presentationAnchor(for controller: ASAuthorizationController) -&gt; ASPresentationAnchor {
+        return view.window!
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        case let creadentials as ASAuthorizationAppleIDCredential:
+            let user = User(credentials: creadentials)
+            let loadingVC = LoadingViewViewController()
+            loadingVC.user = user
+            
+            loadingVC.modalPresentationStyle = .overFullScreen
+            present(loadingVC, animated: true, completion: nil)
+        default:
+            //handle errors here
+            break
+        }
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("Error", error)
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>E52C2374-FA44-45E4-AD83-07AB9624273C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>AUTHORIZATION PROTOCOL PROVIDER</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
